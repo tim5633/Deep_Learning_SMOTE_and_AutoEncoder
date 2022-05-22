@@ -1,3 +1,4 @@
+![image](https://user-images.githubusercontent.com/61338647/169692725-9d521899-e6ee-4484-a8da-ecaab68d1802.png)
 the insurance raw data is on google drive as follow: https://drive.google.com/file/d/1OOsw7EqX1BJqP4h-0D6SXjET4B81cDau/view?usp=sharing
 
 ### Assignment overview
