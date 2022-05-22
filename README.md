@@ -1,3 +1,5 @@
+the insurance raw data is on google drive as follow: https://drive.google.com/file/d/1OOsw7EqX1BJqP4h-0D6SXjET4B81cDau/view?usp=sharing
+
 ### Assignment overview
 When using machine learning for classification, things are easiest if classes are “balanced” – that is, when the number of observations belonging to each of the classes are of the same order of magnitude. Unfortunately, this is often not the case. In this assignment, you will work with a dataset of car-insurance claims and try to classify claims into fraudulent (1) and non- fraudulent (0). There are more than 10,000 claims in the dataset, but only around 100 are fraudulent. Nevertheless, we want to create a model that helps the insurance provider target its investigation efforts. For this, we consider two options: (i) synthetically creating new data to make the dataset more balanced, and (ii) using an auto-encoder to represent “normal” (non- fraudulent) claims and applying it to distinguish fraudulent claims – a form of anomaly detection.
 
