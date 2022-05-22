@@ -199,6 +199,23 @@ We can use our model to predict own dataset and examine sample wise error. Then 
 | autoencoding_turning_model   |  NA  |   0.7244828683568474 |
 | logistic_regression_model   |  0.9129451667608819  |   0.8806937519889678 |
 
+### Keep track of the accuracy and AUC on a test set made from original data only.
+Above table summarizes the Accuracy and AUC scores of individual models we built including two neural network models from original_turning_model and smote_turning_model, autoencoder classifier and logistic regression. However, accuracy score is not applicable for autoencoder classifier, hence, we will make comparison of models based on AUC scores obtained. 
+
+
+###   Accuracy & AUC Scores Comparison: 
+####  1. original_turning_model  vs  logistic_regression_model 
+Neural network in original_turning_model has highest accuracy and AUC among all models but this does not mean that the model has actually outperformed logistic regression due to accuracy paradox. This is due to the neural network in original_turning_model is built on original imbalanced data whereby non-fraud falls under the majority class so the prediction of model is bias towards the non-fraud class of the dataset. The model will tends to learn well on non-fraud class and predict non-fraud class to achieve high accuracy score. 
+
+####  2. smote_turning_model  vs  logistic_regression_model 
+Neural network in smote_turning_model has slightly underperformed as expected when compared to the first neural network built in original_turning_model. This model is built after adjusting for imbalanced classes and it has proven to be outperform the logistic regression with higher accuracy and AUC score. Neural network provides more flexbility as the network size can be restricted by decreasing the number of variables and hidden neurons. Network can also be pruned after training. It is a nonlinear generalizations of logistic regression, so neural network is more powerful but more computationally expensive when compared to logistic regression that is much simple model.
+
+####  3. autoencoding_turning_model  vs  Llogistic_regression_model
+The approach for autencoder classifier is quite different from all other models that we have built, it acts as an extreme rare-event classfier for anomaly detection directly based on original imbalanced data. We observed an improvement in AUC score when compared to logistic regression. Autoencoder performs feature extraction and captures the efficient coding of the input data and projects it into lower dimension. For input data having a lot of input features as in our case of 61 features, it’s proven that model performance is better when we choose to project the data into lower dimensions and use the features for supervised learning task like insurance claim fraud detecton.
+
+### Does the model allow to answer a customer who asks, "why am I being investigated"?
+Yes. It gives true postive rate of 0.996 and false positive rate of 0.257. However, the false positive rate is not very low that means authentic insurance claims could be potentially flagged out and misclassified as fraud claims. This creates unhappy customers who may leave and never return due to they are innocent after investigations. This creates a negative reputation. In general, although logistic regression is not the best model among all others machine learning models demonstrated here but it provides high interpretability of model parameters and has less complex model structure. In this case, it provides reasonable accuracy score of 73.48%, indicating a good model. It is more suitable for smaller and less complex dataset with lesser features.  
+
 ## Conclusion: Transparency of deep learning approaches
 What’s the problem of using a neural network to a fraud:  
 1. Variable cannot be explained: because the neural network has many layers, and the layers are complicated. Compared with other regression methods, these variables cannot be explained, nor can they remind insurance companies which parts to focus on preventing in the early stage, and cannot solve the problem of fraud fundamentally or traceably.
